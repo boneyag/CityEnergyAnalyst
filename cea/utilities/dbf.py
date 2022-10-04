@@ -70,7 +70,7 @@ def dbf_to_dataframe(dbf_path, index=None, cols=None, include_index=False):
         vars_to_read = cols
     else:
         vars_to_read = dbf.header
-    data = dict([(var, dbf.by_col(var)) for var in vars_to_read])
+    data = {var: dbf.by_col(var) for var in vars_to_read}
     if index:
         index = dbf.by_col(index)
         dbf.close()
